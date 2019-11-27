@@ -1,5 +1,4 @@
-/** 原有样式修改 */
-
+/* 原有样式修改 */
 #sideBar{
 	display: none;
 }
@@ -14,7 +13,6 @@
 #main{
 	width: 40%;
 	background-color: white;
-	/*max-width: 700px;*/
 }
 @media screen and (max-width: 1000px) {
  #main {width: 100%;}
@@ -22,7 +20,7 @@
 body{
 	background-image: none;
 	background-color: white;
-	font-family: Menlo,Bitstream Vera Sans Mono,DejaVu Sans Mono,Monaco,Consolas,Microsoft YaHei,monospace !important;
+	font-family: Microsoft YaHei,monospace !important;
 	line-height: 1.8;
 	cursor: url(https://files-cdn.cnblogs.com/files/zouwangblog/cursor.ico),auto;
 }
@@ -39,7 +37,7 @@ body{
 	margin-top: 0;
 }
 
-/** 去除广告 */
+/* 去除广告 */
 #cb_post_title_url{
 	display: none;
 }
@@ -74,85 +72,7 @@ body{
 	display: none;
 }
 
-/** 自定义样式 */
-/* 加载条 */
-#myProgressBar{
-	width: 15%;
-	height: 2px;
-	background-color: #eb5055;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 999;
-}
-#nprogress {
-  pointer-events: none;
-}
-
-#nprogress .bar {
-  background: #eb5055;
-
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 2px;
-}
-#nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px #eb5055, 0 0 5px #eb5055;
-  opacity: 1.0;
-
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-	  -ms-transform: rotate(3deg) translate(0px, -4px);
-		  transform: rotate(3deg) translate(0px, -4px);
-}
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 15px;
-  right: 15px;
-}
-
-#nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
-  box-sizing: border-box;
-
-  border: solid 2px transparent;
-  border-top-color: #eb5055;
-  border-left-color: #eb5055;
-  border-radius: 50%;
-
-  -webkit-animation: nprogress-spinner 400ms linear infinite;
-		  animation: nprogress-spinner 400ms linear infinite;
-}
-.nprogress-custom-parent {
-  overflow: hidden;
-  position: relative;
-}
-.nprogress-custom-parent #nprogress .spinner,
-.nprogress-custom-parent #nprogress .bar {
-  position: absolute;
-}
-
-@-webkit-keyframes nprogress-spinner {
-  0%   { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes nprogress-spinner {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
+/* 自定义样式 */
 /* 导航栏 */
 #mynavbar{
 	width: 100%;
@@ -175,7 +95,7 @@ body{
 }
 #mynavbar_menu a{
 	padding: 0 15px;
-	font-size: 14px;
+	font-size: 20px;
 	outline: 0;
 	color: #313131;
 	text-decoration: none;
@@ -190,11 +110,11 @@ body{
 	margin-top:70px;
 	position: relative;
 	width: 100%;
-	height: 800px;
+	height: 900px;
 }
 #myheader_bg{
 	width:100%;
-	height:800px;
+	height:900px;
 	background-position: center;
 	background-size: cover;
 	-webkit-filter: blur(3px);
@@ -206,7 +126,7 @@ body{
 	position: relative;
 	margin-top: 70px;
 	width: 100%;
-	height: 800px;
+	height: 900px;
 	background-color: rgba(0,0,0,.5);
 	box-shadow: 0 1px 5px rgba(0,0,0,.3);
 }
@@ -252,7 +172,7 @@ body{
 	text-decoration:none;
 }
 
-/* 右侧导航 */
+/* 右侧导航目录 */
 #right_meun{
 	position: fixed;
 	z-index: 999;
@@ -357,7 +277,7 @@ body{
 }
 
 
-/** MarkDown样式调整 */
+/* MarkDown样式调整 */
 .cnblogs-markdown .hljs{
 	font-size: 16px!important;
 	line-height: 2!important;
@@ -408,24 +328,6 @@ blockquote{
 	border:0;
 }
 
-/* code加上行数 */
-.cnblogs-markdown .syntaxhighlighter table td.code {
-  width:95% !important; 
-}
-
-.cnblogs-markdown .syntaxhighlighter code {
-  font-family: "Consolas","Bitstream Vera Sans Mono","Courier New",Courier,monospace!important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  background-color: transparent !important;
-}
-
-.cnblogs-markdown .syntaxhighlighter code:before,
-.cnblogs-markdown .syntaxhighlighter code:before {
-  letter-spacing: -0.5em;
-}
-
-
 /* 更改浏览器滚动条和选中字体背景颜色 */
 ::selection {
 	background-color: #eb5055;
@@ -471,4 +373,22 @@ blockquote{
 }
 .c_ad_block {
 	display: none;
+}
+
+/* 博客园文章签名 */
+#MySignature {
+    background-image: url(https://s2.ax1x.com/2019/10/07/u2cJZn.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+    padding:10px 10px 60px 60px; 
+    border: 1px dashed #F4A423; 
+    font-family: Microsoft YaHei; 
+    font-size: 16px;
+    margin-top: 2px;
+    height: 200px;
+}
+
+.MySignature_text {
+    line-height: 20px;
 }
