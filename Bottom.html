@@ -1,37 +1,38 @@
 <!--自定义尾部代码开始-->
 <div id="post-bottom-bar" class="post-bottom-bar">
 	<div class="bottom-bar-inner">
-		<!-- 左边 -->
+		<!--左边-->
 		<div class="bottom-bar-items social-share" style="float: left;">
-			<span class="bottom-bar-item bottom-bar-facebook">
+			<span class="bottom-bar-item bottom-bar-first">
 				<a id="bottom-d" href="javascript:void(0)">好文要赞</a>
 			</span>
-			<span class="bottom-bar-item bottom-bar-twitter">
+			<span class="bottom-bar-item bottom-bar-second">
 				<a id="bottom-g" href="javascript:void(0)">关注作者</a>
 			</span>
-			<span class="bottom-bar-item bottom-bar-qrcode">
+			<span class="bottom-bar-item bottom-bar-third">
 				<a id="bottom-s" href="javascript:void(0)">收藏该页</a>
 			</span>
 		</div>
-		<!-- 右边 -->
+		<!--右边-->
 		<div class="bottom-bar-items right" style="float: right;">
 			<span class="bottom-bar-item"><a href="#mfooter">直达页尾</a></span>
 			<span class="bottom-bar-item"><a href="#mtop">回到顶部</a></span>
 		</div>
 	</div> 
 </div>
-<a name="mfooter"></a>
+<a name="mfooter"></a><!--尾部锚点-->
 <!--自定义尾部代码结束-->
+
 <script src="https://cdn.bootcss.com/layer/2.3/layer.js"></script>
 <script type="text/javascript">
-	/*
-		用来设置初始时需要执行的js
-	*/
+
+/* 用来设置初始时需要执行的js */
 	$(document).ready(function(){
 		//设置背景图片地址
-		if ($("#head_bg_img").val()!=null && $("#head_bg_img").val()!="") {
+		if($("#head_bg_img").val()!=null && $("#head_bg_img").val()!=""){
 			$("#myheader_bg").css("background-image","url("+$("#head_bg_img").val()+")");
-		}else{
+		}
+		else{
 			$("#myheader_bg").css("background-image","url(https://ww1.sinaimg.cn/large/0062YmUwgy1fthnpo4n7yj31hc0hrq8e.jpg)");
 		}
 		//标题
@@ -47,55 +48,52 @@
 		linkObject.href = "https://s2.ax1x.com/2019/10/07/u2cJZn.jpg";
 		document.getElementsByTagName("head")[0].appendChild(linkObject);
 	})
-	/*设置ajax请求加载完所有数据时执行的js*/
+	/* 设置ajax请求加载完所有数据时执行的js */
 	setTimeout(afterAjax,1000);
 	function afterAjax(){
 		//假如是首页
-		if (window.location.href == "https://www.cnblogs.com/Clouds42"|| 
-			window.location.href == "https://www.cnblogs.com/Clouds42/"||
-			window.location.href == "http://www.cnblogs.com/Clouds42"|| 
-			window.location.href == "http://www.cnblogs.com/Clouds42/") {
+		if(window.location.href == "https://www.cnblogs.com/Clouds42"||
+		window.location.href == "https://www.cnblogs.com/Clouds42/"||
+		window.location.href == "http://www.cnblogs.com/Clouds42"||
+		window.location.href == "http://www.cnblogs.com/Clouds42/"){
 			$("#mypost_title_f").html("");
 			$("#mypost_title_e").html("<a href='https://cnblogs.com/Clouds42'>故事易写,年岁难唱</a>");
-		}else{
+		}
+		else{
 			var classification = null;
-			if ($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= "") {
+			if($("#BlogPostCategory").html()!=null && $("#BlogPostCategory").html()!= ""){
 				classification = $("#BlogPostCategory").html();
 				classification = classification.substring(3,classification.length);
-			}else{
+			}
+			else{
 				classification = "<a href='https://cnblogs.com/Clouds42'>暂未分类</a>";
 			}
 			var ftitle = "本文由 <a href='https://cnblogs.com/Clouds42'>方清欢</a> 于"+ $("#post-date").html() + " 发布在 " +  classification;
-			//设置副标题标题
+			//设置副标题
 			$("#mypost_title_f").html(ftitle);
-			//设置标题分类按钮
+			//设置分类按钮
 			$("#mypost_title_e").html(classification);
-			//设置底部导航条上一篇下一篇文章
-			var pnp = $("#post_next_prev a");
-			$("#mbottom-left").attr("href",pnp[1].href);
-			if (pnp.length>2) {
-				$("#mbottom-right").attr("href",pnp[3].href);
-			}
 		}
 		$("#myheader_bg").css("filter","blur(0px)");
 	}
 
-
-	/*自定义的js方法*/
+/* 自定义的js方法 */
 	//设置底部导航条点击事件
 	$("#bottom-g").click(function(){
 		follow('eb4e0b27-787f-43bd-fdb7-08d69d77f2a4');
 	})
 	$("#bottom-s").click(function(){
-		AddToWz(cb_entryId);return false;
+		AddToWz(cb_entryId);//收藏
+		return false;
 	})
-	if (window.location.href == "https://www.cnblogs.com/Clouds42"|| 
-			window.location.href == "https://www.cnblogs.com/Clouds42/"||
-			window.location.href == "http://www.cnblogs.com/Clouds42"|| 
-			window.location.href == "http://www.cnblogs.com/Clouds42/") {
+	if(window.location.href == "https://www.cnblogs.com/Clouds42"||
+	window.location.href == "https://www.cnblogs.com/Clouds42/"||
+	window.location.href == "http://www.cnblogs.com/Clouds42"||
+	window.location.href == "http://www.cnblogs.com/Clouds42/"){
 		$("#bottom-d").html("友情链接");
 		$("#bottom-d").attr("href","https://www.cnblogs.com/Clouds42/p/11938079.html");
-	}else{
+	}
+	else{
 		var url = window.location.href;
 		var lastUrl = url.substring(url.lastIndexOf("/")+1);
 		var mpageId = lastUrl.substring(0,lastUrl.indexOf("."));
@@ -105,48 +103,43 @@
 		})
 	}
 
-
 	//通过滚动条控制导航条的展现隐藏
 	var oldScrollNum = 0;
 	window.onscroll = function(){
 		var t = document.documentElement.scrollTop || document.body.scrollTop;
 		//下滑
-		if (t>oldScrollNum) {
-			if (t>120) {
+		if(t>oldScrollNum){
+			if(t>60){
 				$("#mynavbar").css("margin-top","-70px");//顶部导航
 				$("#post-bottom-bar").css("bottom","-3pc");//底部导航
 			}
-			if (t>850) {
-				$("#right_meun").css("display","inline-block");//右侧导航
+			if(t>850){
+				$("#right_menu").css("display","inline-block");//右侧导航
 			}
 		//上拉
-		}else{
+		}
+		else{
 			//防止用a链接跳转也触发效果
-			if (oldScrollNum-t<20) {
+			if(oldScrollNum-t<20){
 				$("#mynavbar").css("margin-top","0px");//顶部导航
 				$("#post-bottom-bar").css("bottom","0");//底部导航
 			}
-			if (t<=850) {
-				$("#right_meun").css("display","none");//右侧导航
+			if(t<=850){
+				$("#right_menu").css("display","none");//右侧导航
 			}
 		}
 		oldScrollNum = t;
 	}
 
-	//背景大图点击模糊||清晰
+	//背景大图点击模糊,清晰
 	$("#myheader_cover").click(function(){
-		if ($("#myheader_bg").css("filter") == "blur(3px)") {
+		if($("#myheader_bg").css("filter") == "blur(3px)"){
 			$("#myheader_bg").css("filter","blur(0px)");
-		}else{
+		}
+		else{
 			$("#myheader_bg").css("filter","blur(3px)");
 		}
 	})
-
-	//点击图片放大居中显示
-	layer.photos({
-		photos: '#cnblogs_post_body'
-		,shift: 0
-	});
  </script>
 
  <script type="text/javascript">
@@ -162,7 +155,7 @@
 			var captions_ori = $("#cnblogs_post_body h2"),
 				captions_ori2 = $("#cnblogs_post_body h3"),
 				captions = $("#cnblogs_post_body h2,#cnblogs_post_body h3").clone(),
-				content = $("<ul id='right_meun'></ul>");
+				content = $("<ul id='right_menu'></ul>");
 			$("#cnblogs_post_body").prepend(content.append(captions));
 			var index = -1,index2 = -1;
 			captions.replaceWith(function(){
@@ -172,7 +165,8 @@
 					index += 1;
 					$('<a name="' + '_caption_' + index + '"></a>').insertBefore(captions_ori[index]); 
 					return '<li id="'+index+'li"><a href="#_caption_' + index + '">' + self.innerHTML + '</a><ul></ul></li>';
-				} else {
+				}
+				else{
 					// h3链接跳转
 					index2 += 1;
 					$('<a name="' + '_caption' + index2 + '"></a>').insertBefore(captions_ori2[index2]); 
@@ -195,30 +189,3 @@
 <!--设置指针烟花-->
 <script src="https://blog-static.cnblogs.com/files/zouwangblog/mouse-click.js"></script>
 <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-
-<!--live2d-->
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Live2D</title>
-
-<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/Clouds42/waifu1.css"/>
-<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/Clouds42/flat-ui.min1.css"/>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-<div class="waifu" id="waifu">
-	<div class="waifu-tips" style="opacity: 1; font-size: 14px"></div>
-	<canvas id="live2d" width="300" height="300" class="live2d"></canvas>
-	<div class="waifu-tool">
-		<span class="fui-home"></span>
-		<span class="fui-eye"></span>
-		<span class="fui-user"></span>
-		<span class="fui-cross"></span>
-	</div>
-</div>
-<script src="https://blog-static.cnblogs.com/files/Clouds42/live2d.js"></script>
-<script src="https://blog-static.cnblogs.com/files/Clouds42/waifu-tipsV1.2.js"></script>
-<script type="text/javascript">initModel()</script>
-</body>
-</html>

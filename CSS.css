@@ -19,10 +19,10 @@
 }
 body{
 	background-image: none;
-	background-color: white;
-	font-family: Microsoft YaHei,monospace !important;
-	line-height: 1.8;
-	cursor: url(https://files-cdn.cnblogs.com/files/zouwangblog/cursor.ico),auto;
+	background-color: rgb(255, 255, 255);
+	font-family: 'Microsoft YaHei',sans-serif !important;
+	line-height: 1.8;/*行间距*/
+	cursor: url(https://files-cdn.cnblogs.com/files/zouwangblog/cursor.ico),auto;/*定义鼠标指针*/
 }
 #cnblogs_post_body{
 	font-size: 16px;
@@ -33,9 +33,22 @@ body{
 #post_next_prev{
 	display: none;
 }
+.day {
+	min-height: 10px;
+	padding-bottom: 5px;
+	position: relative;
+	border: thin dashed #2e279d;
+	border-radius: 10px;
+	margin-bottom: 50px;
+	padding: 30px;
+}
+.dayTitle{
+	display: none;
+}
 .forFlow img{
 	margin-top: 0;
 }
+/* 原有样式修改结束 */
 
 /* 去除广告 */
 #cb_post_title_url{
@@ -51,13 +64,13 @@ body{
 	display: none;
 }
 #kb_block{
-	display:none
+	display: none;
 }
 #under_post_news{
-	display:none
+	display: none;
 }
 #header{
-	display:none
+	display: none;
 }
 #BlogPostCategory{
 	display: none;
@@ -71,8 +84,11 @@ body{
 #author_profile_follow{
 	display: none;
 }
+.c_ad_block {
+	display: none;
+}
+/* 去除广告结束 */
 
-/* 自定义样式 */
 /* 导航栏 */
 #mynavbar{
 	width: 100%;
@@ -82,8 +98,8 @@ body{
 	top: 0px;
 	z-index: 100;
 	background-color: white;
-	transition:0.5s ease-in-out;
-	box-shadow: 0 1px 5px rgba(0,0,0,.1);
+	transition:0.5s ease-in-out;/*过渡效果*/
+	box-shadow: 0 1px 5px rgba(0,0,0,.1);/*x偏移量 y偏移量 阴影模糊半径 阴影颜色*/
 }
 #mynavbar_menu{
 	display: inline-block;
@@ -93,26 +109,27 @@ body{
 	text-align: right;
 	line-height: 68px;
 }
-#mynavbar_menu a{
+#mynavbar_menu a{/*菜单栏的链接(a)样式*/
 	padding: 0 15px;
 	font-size: 20px;
 	outline: 0;
 	color: #313131;
 	text-decoration: none;
 }
-#mynavbar_menu a:hover{
+#mynavbar_menu a:hover{/*鼠标悬浮在链接上时*/
 	color: #eb5055 !important;
 }
+/* 导航栏结束 */
 
 /* 头部 */
 #myheader{
 	background-color: #2175bc!important;
-	margin-top:70px;
+	margin-top: 70px;
 	position: relative;
 	width: 100%;
 	height: 900px;
 }
-#myheader_bg{
+#myheader_bg{/*背景图片*/
 	width:100%;
 	height:900px;
 	background-position: center;
@@ -122,7 +139,7 @@ body{
 	filter: blur(3px);
 	position: absolute;
 }
-#myheader_cover{
+#myheader_cover{/*遮罩层*/
 	position: relative;
 	margin-top: 70px;
 	width: 100%;
@@ -130,9 +147,9 @@ body{
 	background-color: rgba(0,0,0,.5);
 	box-shadow: 0 1px 5px rgba(0,0,0,.3);
 }
-#mypost_title{
+#mypost_title{/*文章标题*/
 	position: relative;
-	top: 105pt;
+	top: 1.5em;
 	margin: 0 auto;
 	padding: 30px 25px 20px;
 	max-width: 1000px;
@@ -140,40 +157,44 @@ body{
 	transition:0.5s;
 	opacity: 0;
 }
-#mypost_title_e{
+#mypost_title_e{/*"随笔分类"标签*/
 	margin: 0;
 	padding: 5px 0 15px;
 }
-#mypost_title_e a{
+#mypost_title_e a{/*标签链接样式*/
 	border: 1px solid #6fa3ef;
 	border-radius: 15px;
 	background: #6fa3ef;
-	color: #fff;display: inline-block;
+	color: #fff;
+	display: inline-block;
 	margin: 4px 8px 0 0;
 	padding: 0 15px;
 	letter-spacing: 0;
 	font-weight: 600;
-	font-size: 20px;outline: 0;text-decoration: none;
+	font-size: 20px;
+	outline: 0;
+	text-decoration: none;
 	transition: 0.5s;
 }
-#mypost_title_e a:before{
+#mypost_title_e a:before{/*标签链接之前*/
 	content: "# "
 }
-#mypost_title_e a:hover{
+#mypost_title_e a:hover{/*鼠标悬浮在标签链接之上*/
 	background-color: white;
 	border: 1px solid white;
 	color:black;
 }
-#mypost_title_f a{
+#mypost_title_f a{/*随笔副标题的链接样式*/
 	color: white;
 	font-size: 20px;
 }
-#mypost_title_f a:hover{
+#mypost_title_f a:hover{/*鼠标悬浮在副标题链接之上*/
 	text-decoration:none;
 }
+/* 头部结束 */
 
-/* 右侧导航目录 */
-#right_meun{
+/* 右侧悬浮目录 */
+#right_menu{
 	position: fixed;
 	z-index: 999;
 	top: 100px;
@@ -181,12 +202,12 @@ body{
 	display: none;
 	text-align: left;
 	border-left: 1px solid #ddd;
-	font-size: 12px;
+	font-size: 14px;
 }
-#right_meun li{
+#right_menu li{/*列表项目*/
 	list-style: none!important;
 }
-#right_meun a{
+#right_menu a{/*目录链接*/
 	display: inline-table;
 	margin-left: 5px;
 	white-space: nowrap;
@@ -194,10 +215,10 @@ body{
 	color: #313131;
 	outline: 0;
 }
-#right_meun a:hover{
+#right_menu a:hover{/*悬在目录链接上*/
 	color: #eb5055;
 }
-#right_meun>li::before {
+#right_menu>li::before {
 	position: relative;
 	top: 0;
 	left: -4px;
@@ -208,6 +229,7 @@ body{
 	border-radius: 50%;
 	background-color: #eb5055;
 }
+/* 右侧悬浮目录结束 */
 
 /* 底部导航 */
 #post-bottom-bar{
@@ -215,7 +237,7 @@ body{
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 2;
+	z-index: 0;/*为防止遮挡Live2D*/
 	height: 3pc;
 	border-top: 1px solid #e0e0e0;
 	background-color: #fff;
@@ -223,7 +245,7 @@ body{
 	padding: 0;
 	transition: 0.5s ease-in-out;
 }
-#post-bottom-bar a{
+#post-bottom-bar a{/*底部导航条的链接样式*/
 	text-decoration: none!important;
 }
 .post-bottom-bar .bottom-bar-inner{
@@ -243,18 +265,14 @@ body{
 	font-size: 14px;
 	line-height: 3pc;
 }
-.post-bottom-bar .social-share .bottom-bar-item {
+.post-bottom-bar .social-share .bottom-bar-item{
 	padding: 4px;
 }
-.post-bottom-bar .bottom-bar-item.bottom-bar-facebook a {
-	background-color: #46b3e6;
-	color: #fff;
-}
-.post-bottom-bar .social-share .bottom-bar-item a {
+.post-bottom-bar .social-share .bottom-bar-item a{
 	padding: 2px 10px;
 	border-radius: 15px;
 }
-.post-bottom-bar .bottom-bar-item a {
+.post-bottom-bar .bottom-bar-item a{
 	margin: 0;
 	padding: 9pt;
 	border: 0;
@@ -264,18 +282,22 @@ body{
 	line-height: 3pc;
 	cursor: pointer;
 }
-.post-bottom-bar .bottom-bar-item.bottom-bar-twitter a {
-	background-color: #4d80e4;
+.post-bottom-bar .bottom-bar-item.bottom-bar-first a{/*底部导航第一个按钮*/
+	background-color: #151965;
 	color: #fff;
 }
-.post-bottom-bar .bottom-bar-item.bottom-bar-qrcode a {
+.post-bottom-bar .bottom-bar-item.bottom-bar-second a{/*底部导航第二个按钮*/
 	background-color: #2e279d;
+	color: #fff;
+}
+.post-bottom-bar .bottom-bar-item.bottom-bar-third a{/*底部导航第三个按钮*/
+	background-color: #4d80e4;
 	color: #fff;
 }
 .bottom-bar-item a:hover{
 	color: #eb5055;
 }
-
+/* 底部导航结束 */
 
 /* MarkDown样式调整 */
 .cnblogs-markdown .hljs{
@@ -304,18 +326,18 @@ body{
 	font-weight: 500;
 	margin: 20px 0;
 }
-#cnblogs_post_body h3{
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 1.5;
-	margin: 10px 0;
-}
 .cnblogs-markdown h3:before{
 	content: "##";
 	color: #2175bc;
 	position: relative;
 	top: 0;
 	left: -8px;
+}
+#cnblogs_post_body h3{
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5;
+	margin: 10px 0;
 }
 .postBody blockquote, .postCon blockquote{
 	background-image: none;
@@ -324,35 +346,38 @@ body{
 	width: 100%;
 	padding: 6px 0 6px 25px;
 }
-blockquote{
+blockquote{/*引用*/
 	border:0;
 }
+/* Markdown样式调整结束 */
 
 /* 更改浏览器滚动条和选中字体背景颜色 */
 ::selection {
 	background-color: #eb5055;
 	color: #fff;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar {/*整个滚动条*/
 	width: 6px;
 	height: 6px;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {/*滚动条上的滚动滑块*/
 	min-height: 28px;
 	background-color: #c2c2c2;
 	background-clip: padding-box;
 }
-::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track-piece {/*滚动滑道没有滑块的地方*/
 	background-color: #fff;
 }
-*, :after, :before {
+*, :after, :before{
 	box-sizing: border-box;
+}
+/* 更改浏览器滚动条和选中字体背景颜色结束 */
 
 /* 隐藏反对 */
-}
 	.buryit {
 	display: none;
 }
+/* 隐藏反对结束 */
 
 /* 悬浮推荐 */
 #div_digg {
@@ -360,35 +385,29 @@ blockquote{
 	bottom: 50px;
 	width: 70px;
 	right: 370px;
-	border: 2px solid #edd7b2;
+	border: 2px solid #a1aaff;
 	padding: 10px;
 	background-color: #fff;
 	border-radius: 5px 5px 5px 5px !important;
-	box-shadow: 0 0 0 1px #ecd7b1, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+	box-shadow: 2px 4px 6px 1px rgba(10, 10, 0, 0.5);
 }
-
-/* adblock */
-#ad_t2 {
-	display: none;
-}
-.c_ad_block {
-	display: none;
-}
+/* 悬浮推荐结束 */
 
 /* 博客园文章签名 */
 #MySignature {
-    background-image: url(https://s2.ax1x.com/2019/10/07/u2cJZn.jpg);
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-position:center;
-    padding:10px 10px 60px 60px; 
-    border: 1px dashed #F4A423; 
-    font-family: Microsoft YaHei; 
-    font-size: 16px;
-    margin-top: 2px;
-    height: 200px;
+	background-image: url(https://s2.ax1x.com/2019/10/07/u2cJZn.jpg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+	padding:10px 10px 60px 60px;
+	border: thin dashed #F4A423;
+	border-radius: 25px;
+	font-family: Microsoft YaHei, sans-serif;
+	font-size: 16px;
+	margin-top: 2px;
+	height: 200px;
 }
-
 .MySignature_text {
-    line-height: 20px;
+	line-height: 20px;
 }
+/* 博客园文章签名结束 */
